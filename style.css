@@ -40,18 +40,27 @@ body {
 }
 
 .profile-pic-container {
+    width: 90px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 4px;
     border-radius: 50%;
     background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
     margin-bottom: 15px;
 }
 
-.profile-pic {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    border: 3px solid #1a1a1a;
+.profile-emoji {
+    font-size: 64px;
+    animation: emoji-pulse 3s infinite ease-in-out;
 }
+
+@keyframes emoji-pulse {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    50% { transform: scale(1.15) rotate(5deg); }
+}
+
 
 .profile-section h2 {
     margin: 0;
