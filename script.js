@@ -11,7 +11,8 @@ const translations = {
         "add_new_task_title": "Add New Task",
         "task_input_placeholder": "Task title...",
         "save_task_btn": "Save",
-        "close_modal_btn": "Cancel"
+        "close_modal_btn": "Cancel",
+        "add_a_card": "Add a card"
     },
     fa: {
         "klaus_title": "کلاوس",
@@ -25,7 +26,8 @@ const translations = {
         "add_new_task_title": "اضافه کردن تسک جدید",
         "task_input_placeholder": "عنوان تسک...",
         "save_task_btn": "ذخیره",
-        "close_modal_btn": "انصراف"
+        "close_modal_btn": "انصراف",
+        "add_a_card": "افزودن کارت"
     }
 };
 
@@ -71,18 +73,17 @@ function createTaskCard(task) {
 }
 
 function renderTasks() {
-    // Clear all columns first
-    document.querySelectorAll('.kanban-board .column').forEach(column => {
-        // Clear only cards, not the title
-        column.querySelectorAll('.card').forEach(card => card.remove());
+    document.querySelectorAll('.cards-container').forEach(container => {
+        container.innerHTML = '';
     });
 
     for (const columnId in tasks) {
         const columnElement = document.getElementById(columnId);
         if (columnElement) {
+            const container = columnElement.querySelector('.cards-container');
             tasks[columnId].forEach(task => {
                 const card = createTaskCard(task);
-                columnElement.appendChild(card);
+                container.appendChild(card);
             });
         }
     }
@@ -90,21 +91,24 @@ function renderTasks() {
 
 function saveTasks() {
     const boardState = {};
-    document.querySelectorAll('.kanban-board .column').forEach(column => {
+    document.querySelectorAll('.column').forEach(column => {
         const columnId = column.id;
-        const columnTasks = [];
-        column.querySelectorAll('.card').forEach(card => {
-            columnTasks.push({
-                id: card.dataset.id,
-                text: card.querySelector('p').textContent,
-                date: card.querySelector('.date').textContent
-            });
-        });
-        boardState[columnId] = columnTasks;
+        const container = column.querySelector('.cards-container');
+        boardState[columnId] = Array.from(container.querySelectorAll('.card')).map(card => ({
+            id: card.dataset.id,
+            text: card.querySelector('p').textContent,
+            date: card.querySelector('.date').textContent
+        }));
     });
     localStorage.setItem('kanbanBoard', JSON.stringify(boardState));
 }
 
+function openTaskModal() {
+    const modal = document.getElementById('taskModal');
+    const taskInput = document.getElementById('taskInput');
+    modal.style.display = 'flex';
+    taskInput.focus();
+}
 
 document.addEventListener('DOMContentLoaded', () => {
     // --- Setup & Load Data ---
@@ -115,29 +119,19 @@ document.addEventListener('DOMContentLoaded', () => {
     if (savedTasks) {
         tasks = JSON.parse(savedTasks);
     } else {
-        // Initial dummy data if nothing is saved
-        tasks = {
-            "todo-column": [],
-            "inprogress-column": [],
-            "done-column": [],
-            "archived-column": []
-        };
+        tasks = { "todo-column": [], "inprogress-column": [], "done-column": [], "archived-column": [] };
     }
     renderTasks();
 
     // --- Modal Elements ---
     const modal = document.getElementById('taskModal');
-    const addTaskBtn = document.getElementById('addTaskBtn');
     const closeModalBtn = document.getElementById('closeModalBtn');
     const saveTaskBtn = document.getElementById('saveTaskBtn');
     const taskInput = document.getElementById('taskInput');
 
-    // --- Event Listeners ---
-    addTaskBtn.addEventListener('click', () => {
-        modal.style.display = 'flex';
-        taskInput.focus();
-    });
-
+    // --- Event Listeners for Adding Tasks ---
+    document.querySelector('.add-card-btn').addEventListener('click', openTaskModal);
+    
     closeModalBtn.addEventListener('click', () => {
         modal.style.display = 'none';
         taskInput.value = '';
@@ -167,15 +161,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // --- Initialize SortableJS ---
-    const columns = document.querySelectorAll('.kanban-board .column');
-    columns.forEach(column => {
-        new Sortable(column, {
+    const containers = document.querySelectorAll('.cards-container');
+    containers.forEach(container => {
+        new Sortable(container, {
             group: 'kanban',
             animation: 150,
             ghostClass: 'sortable-ghost',
             handle: '.card',
             draggable: '.card',
-            onEnd: saveTasks // Save state after drag-and-drop
+            onEnd: saveTasks
         });
     });
 });

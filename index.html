@@ -32,22 +32,24 @@
             <div class="kanban-board">
                 <div class="column" id="todo-column">
                     <h3><i data-feather="list"></i><span data-key="todo_column">انجام‌ نشده</span></h3>
-                    <!-- Tasks will be loaded here -->
+                    <div class="cards-container"></div>
+                    <button class="add-card-btn"><i data-feather="plus"></i> <span data-key="add_a_card">افزودن کارت</span></button>
                 </div>
                 <div class="column" id="inprogress-column">
                     <h3><i data-feather="loader"></i><span data-key="inprogress_column">در حال انجام</span></h3>
+                    <div class="cards-container"></div>
                 </div>
                 <div class="column" id="done-column">
                     <h3><i data-feather="check-circle"></i><span data-key="done_column">انجام ‌شده</span></h3>
+                    <div class="cards-container"></div>
                 </div>
                 <div class="column" id="archived-column">
                     <h3><i data-feather="archive"></i><span data-key="archived_column">بایگانی ‌شده</span></h3>
+                    <div class="cards-container"></div>
                 </div>
             </div>
         </main>
     </div>
-
-    <button id="addTaskBtn" class="fab"><i data-feather="plus"></i></button>
 
     <div id="taskModal" class="modal">
         <div class="modal-content">
