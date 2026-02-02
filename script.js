@@ -86,7 +86,7 @@ function createTaskCard(task) {
 
 function renderTasks() {
     document.querySelectorAll('.cards-container').forEach(container => {
-        container.innerHTML = '\;
+        container.innerHTML = '';
     });
 
     for (const columnId in tasks) {
@@ -134,28 +134,30 @@ function isBoardEmpty(board) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    // --- Setup & Load Data ---
+    // --- Setup & Load Tata ---
     const savedLang = localStorage.getItem('language') || 'fa';
     let savedTasks = localStorage.getItem('kanbanBoard');
-
-    const loadTasks = () => {
-        if (!savedTasks || isBoardEmpty(JSON.parse(savedTasks))) {
-            fetch('tasks.json')
-                .then(response => response.json())
-                .then(data => {
-                    tasks = data;
-                    renderTasks();
-                    saveTasks(); // Save the fetched tasks to localStorage
-                })
-                .catch(error => console.error('Error fetching tasks:', error));
-        } else {
-            tasks = JSON.parse(savedTasks);
-            renderTasks();
-        }
-    };
+    
+    // Check if savedTasks is null, undefined, or represents an empty board
+    if (!savedTasks || isBoardEmpty(JSON.parse(savedTasks))) {
+        const today = new Date().toLocaleDateString('en-CA');
+        tasks = { 
+            "todo-column": [
+                { id: 'task-1', key: 'welcome_task', text: null, date: today },
+                { id: 'task-2', key: 'dnd_task', text: null, date: today },
+                { id: 'task-3', key: 'add_task_instruction', text: null, date: today }
+            ], 
+            "inprogress-column": [], 
+            "done-column": [], 
+            "archived-column": [] 
+        };
+        saveTasks(); // Save the initial tasks immediately
+    } else {
+        tasks = JSON.parse(savedTasks);
+    }
     
     setLanguage(savedLang);
-    loadTasks();
+    renderTasks();
 
     // --- Modal & Add Task Listeners ---
     const modal = document.getElementById('taskModal');
@@ -166,7 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     closeModalBtn.addEventListener('click', () => {
         modal.style.display = 'none';
-        taskInput.value = '\;
+        taskInput.value = '';
     });
 
     saveTaskBtn.addEventListener('click', () => {
@@ -178,11 +180,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 key: null,
                 date: new Date().toLocaleDateString('en-CA')
             };
-            if (!tasks['todo-column']) tasks['todo-column'] = [];
+            if (!tasks['todo-column']) if (!tasks['todo-column'] = [];if (!tasks['todo-column']) tasks['todo-column'] = [];
             tasks['todo-column'].push(newTask);
             renderTasks();
             saveTasks();
-            taskInput.value = '\;
+            taskInput.value = '';
             modal.style.display = 'none';
         }
     });
@@ -190,7 +192,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('click', (event) => {
         if (event.target == modal) {
             modal.style.display = 'none';
-            taskInput.value = '\;
+            taskInput.value = '';
         }
     });
 
@@ -206,4 +208,3 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
-
