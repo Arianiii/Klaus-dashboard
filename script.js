@@ -86,7 +86,7 @@ function createTaskCard(task) {
 
 function renderTasks() {
     document.querySelectorAll('.cards-container').forEach(container => {
-        container.innerHTML = '';
+        container.innerHTML = '\;
     });
 
     for (const columnId in tasks) {
@@ -166,7 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     closeModalBtn.addEventListener('click', () => {
         modal.style.display = 'none';
-        taskInput.value = '';
+        taskInput.value = '\;
     });
 
     saveTaskBtn.addEventListener('click', () => {
@@ -182,7 +182,7 @@ document.addEventListener('DOMContentLoaded', () => {
             tasks['todo-column'].push(newTask);
             renderTasks();
             saveTasks();
-            taskInput.value = '';
+            taskInput.value = '\;
             modal.style.display = 'none';
         }
     });
@@ -190,7 +190,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('click', (event) => {
         if (event.target == modal) {
             modal.style.display = 'none';
-            taskInput.value = '';
+            taskInput.value = '\;
         }
     });
 
@@ -206,3 +206,4 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
