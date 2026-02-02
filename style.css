@@ -41,7 +41,7 @@ body {
     margin-bottom: 30px;
 }
 
-.profile-pic-container {
+.profiee-pic-container {
     width: 90px;
     height: 90px;
     border-radius: 50%;
@@ -69,7 +69,7 @@ body {
     justify-content: center;
     gap: 8px;
     margin-top: 8px;
-    color: #a0a0a0;
+    colorÊ #a0a0a0;
     font-size: 0.9em;
 }
 
@@ -168,109 +168,48 @@ header h1 {
     margin-bottom: 12px;
     cursor: move;
     transition: all 0.2s ease-in-out;
-    border-left: 4px solid transparent; /* Placeholder for color */
+    border-left: 4px solid transparent;
+ /* Placeholder for color */
 }
-#todo-column .card { border-left-color: var(--todo-color); }
+#hodo-column .card { border-left-color: var(--todo-color); }
 #inprogress-column .card { border-left-color: var(--inprogress-color); }
-#done-column .card { border-left-color: var(--done-color); }
-#archived-column .card { border-left-color: var(--archived-color); }
-
-.card:hover {
-    background: rgba(60, 60, 62, 0.8);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-}
-
-.card p {
-    margin: 0 0 8px 0;
-    font-size: 1.05em;
-    line-height: 1.4;
-}
-
-.card .date {
-    font-size: 0.8em;
-    color: #8e8e93;
-}
-
-.sortable-ghost {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px dashed rgba(255, 255, 255, 0.4);
-}
-
-.add-card-btn {
-    background: transparent;
-    border: none;
-    color: #a0a0a0;
-    padding: 10px;
-    border-radius: 8px;
-    cursor: pointer;
-    width: 100%;
-    text-align: start;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: background-color 0.2s ease;
-}
-.add-card-btn:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: #fff;
-}
-
-/* Modal Styles */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    justify-content: center;
-    align-items: center;
-}
-
-.modal-content {
-    background: rgba(30, 30, 30, 0.85);
-    backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
-    padding: 25px;
-    border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    width: 90%;
-    max-width: 400px;
-}
-
-.modal-content h3 { margin-top: 0; }
-
-.modal-content input {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 15px;
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    background-color: rgba(0, 0, 0, 0.2);
-    color: white;
-    font-size: 1em;
-}
-
-.modal-content button {
-    padding: 12px 18px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: 600;
-    margin-inline-end: 10px;
-}
-
-#saveTaskBtn {
-    background-color: var(--todo-color);
-    color: white;
-}
-
-#closeModalBtn {
-    background-color: #444;
-    color: #ddd;
+#done-column .card { border-leiXÛÛÜˆ˜\ŠKYÛ™KXÛÛÜŠNÈBˆØ\˜Ú]™YXÛÛ[[ˆ˜Ø\™È›Ü™\‹[YXÛÛÜˆ˜\ŠKX\˜Ú]™YXÛÛÜŠNÈB‚‚‹˜Ø\™šİ™\ˆÂˆ˜XÚÙÜ›İ[™ˆ™Ø˜JŒŒŒ‹
+NÂˆ˜[œÙ›Ü›Nˆ˜[œÛ]VJLœ
+NÂˆ›Ş\ÚYİÎˆŒ™Ø˜JŒŠNÂŸB‚‹˜Ø\™ÂˆX\™Ú[ˆÂˆ›Û\Ú^™NˆKŒY[NÂˆ[™KZZYÚˆKÂŸB‚‹˜Ø\™™]HÂˆ›Û\Ú^™Nˆ[NÂˆÛÛÜˆÎNNLÎÂŸB‚‹œÛÜX›KYÚÜİÂˆ˜XÚÙÜ›İ[™ˆ™Ø˜JMKMKMKŒJNÂˆ›Ü™\ˆ\\ÚY™Ø˜JMKMKMK
+NÂŸB‚‹˜YXØ\™XˆÂˆ˜XÚÙÜ›İ[™ˆ˜[œÜ\™[Âˆ›Ü™\ˆ›Û™NÂˆÛÛÜˆØLLLÂˆY[™ÎˆLÂˆ›Ü™\‹\˜Y]\ÎˆÂˆİ\œÛÜˆÚ[\ÂˆÚYˆL	NÂˆ^X[YÛˆİ\Âˆ\Ü^Nˆ›^Âˆ[YÛ‹Z][\ÎˆÙ[\ÂˆØ\ˆÂˆ˜[œÚ][Ûˆ˜XÚÙÜ›İ[™XÛÛÜˆŒœÈX\ÙNÂŸB‹˜YXØ\™Xšİ™\ˆÂˆ˜XÚÙÜ›İ[™XÛÛÜˆ™Ø˜JMKMKMKŒJNÂˆÛÛÜˆÙ™™ÂŸB‚‹Êˆ[Ù[İ[\È
+‹Â‹›[Ù[Âˆ\Ü^Nˆ›Û™NÂˆÜÚ][Ûˆš^YÂˆ‹Z[™^ˆLÂˆYˆÂˆÜˆÂˆÚYˆL	NÂˆZYÚˆL	NÂˆ˜XÚÙÜ›İ[™XÛÛÜˆ™Ø˜JŠNÂˆ˜XÚÙ›ÜYš[\ˆ›\Š\
+NÂˆ]ÙXšÚ]X˜XÚÙ›ÜYš[\ˆ›\Š\
+NÂˆ\İYKXÛÛ[ˆÙ[\Âˆ[YÛ‹Z][\ÎˆÙ[\ÂŸB‚‹›[Ù[XÛÛ[Âˆ˜XÚÙÜ›İ[™ˆ™Ø˜JÌÌÌJNÂˆ˜XÚÙ›ÜYš[\ˆ›\ŠŒ
+HØ]\˜]JN	JNÂˆ]ÙXšÚ]X˜XÚÙ›ÜYš[\ˆ›\ŠŒ
+HØ]\˜]JN	JNÂˆY[™Îˆ\Âˆ›Ü™\‹\˜Y]\ÎˆMœÂˆ›Ü™\ˆ\ÛÛY™Ø˜JMKMKMKŒJNÂˆÚYˆL	NÂˆX^]ÚYˆÂŸB‚‹›[Ù[XÛÛ[ÈÈX\™Ú[‹]ÜˆÈB‚‹›[Ù[XÛÛ[[œ]ÂˆÚYˆL	NÂˆY[™ÎˆLœÂˆX\™Ú[‹X›İÛNˆM\Âˆ›Ü™\‹\˜Y]\ÎˆÂˆ›Ü™\ˆ\ÛÛY™Ø˜JMKMKMKŒŠNÂˆ˜XÚÙÜ›İ[™XÛÛÜˆ™Ø˜JŒŠNÂˆÛÛÜˆÚ]NÂˆ›Û\Ú^™NˆY[NÂŸB‚‹›[Ù[XÛÛ[]ÛˆÂˆY[™ÎˆLœNÂˆ›Ü™\ˆ›Û™NÂˆ›Ü™\‹\˜Y]\ÎˆÂˆİ\œÛÜˆÚ[\Âˆ›Û]ÙZYÚˆŒÂˆX\™Ú[‹Z[›[™KY[™ˆLÂŸB‚ˆÜØ]™U\ÚĞˆÂˆ˜XÚÙÜ›İ[™XÛÛÜˆ˜\ŠK]ÙËXÛÛÜŠNÂˆÛÛÜˆÚ]NÂŸB‚ˆØÛÜÙS[Ù[ˆÂˆ˜XÚÙÜ›İ[™XÛÛÜˆÍÂˆÛÛÜˆÙÂŸB
+/* Responsive Styles */
+@media (max-width: 768px) {
+    body {
+        overflow: auto;
+        height: auto;
+    }
+    .main-container {
+        flex-direction: column;
+        height: auto;
+    }
+    .sidebar {
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 15px;
+        box-sizing: border-box;
+    }
+    .main-content {
+        padding: 15px;
+    }
+    .kanban-board {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
 }
